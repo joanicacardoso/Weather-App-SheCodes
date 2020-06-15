@@ -2,6 +2,41 @@
   width: 350px;
   height: 500px;
   margin: 40px auto;
-  border: 1px solid #000000;
-  padding: 20px 15px;
+  border: 1px solid #d86141;
+  padding: 20px 20px;
+  background-color: #d86141;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.time-stamp {
+  line-height: 14px;
+}
+
+.current-information {
+  text-align: center;
+}
+
+.icon {
+  margin-bottom: 20px;
+}
+
+h3 {
+}
+.current-condition {
+  font-size: 12px;
+}
+
+.extra-info {
+  text-align: right;
+}
+
+.forecast {
+  text-align: center;
+}
+
+.units {
+  text-align: right;
 }
