@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -19,20 +20,22 @@
     <div class="container"></div>
         <div class="row row-cols-3 no-gutters" class="header">
         <div class="col-5">
-        <input class="form-control form-control-sm" type="text" placeholder="Enter a city">
+             <form id="search-form">
+                <input type="text" class="form-control form-control-sm" class="form" placeholder="Enter a city" autocomplete="off" id="city-input" />
         </div>
         <div class="col-4">
-            <button type="button" class="btn btn-secondary btn-sm">Search</button>
+            <button type="button" class="btn btn-secondary btn-sm" class="button" id="submit-btn">Search</button>
         </div>
+        </form>
         <div class="col-3">
           <div class="units">
-            ºC | ºF
+           <a href="#" class="celsius">ºC</a> | <a href="#" class="fahr">ºF</a> 
           </div>
         </div>
       </div>
         <div class="time-stamp">
             <p>Last updated:</br>
-            <span class="date">Sunday, June 11</br>15:45</span>
+            <span class="date" id="date"></br></span>
 
             </p>
         </div>
@@ -40,51 +43,28 @@
 <svg width="115" height="115" class="icon" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
 </svg>
-<h3>
-    18º</br>New York
-</br> <small class="current-condition"> Clear sky</small></h3>
-<p class="extra-info">Humidity: 45% </br> Wind: 4 km/h</p>
+<div id="current" class="current">
+    <span id="temperature"></span>º</br>
+    <span id="city"></span>
+   
+</br> <small class="current-condition" id="current-condition"></small>
+</div>
+<p class="extra-info">Humidity: <span id="humidity"></span>% </br> Wind: <span id="wind"></span>km/h</p>
         </div>
-        <div class="forecast">
-            <div class="row row-cols-5 no-gutters">
+        <div class="forecast" >
+            <div class="row row-cols-5 no-gutters" id="forecast">
                 <div class="col">
                     <p>12:00</p>
                     <svg width="30" height="30" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
                     </svg>
-                    <p>12º <strong>24º</strong></p>
+                    <p class="forecast-temp"><strong></strong></p>
                 </div>
-                <div class="col">
-                    <p>12:00</p>
-                    <svg width="30" height="30" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
-                    </svg>
-                    <p>12º <strong>24º</strong></p>
-                </div>
-                <div class="col">
-                    <p>12:00</p>
-                    <svg width="30" height="30" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
-                    </svg>
-                    <p>12º <strong>24º</strong></p>
-                </div>
-                <div class="col">
-                    <p>12:00</p>
-                    <svg width="30" height="30" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
-                    </svg>
-                    <p>12º <strong>24º</strong></p>
-                </div>
-                <div class="col">
-                    <p>12:00</p>
-                    <svg width="30" height="30" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
-                    </svg>
-                    <p>12º <strong>24º</strong></p>
-                </div>
+                
             </div>
         </div>
     </div>
     </div>
+    <script src="src/app.js"></script>
   </body>
 </html>
