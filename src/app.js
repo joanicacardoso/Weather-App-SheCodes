@@ -54,12 +54,8 @@ function showTemperature(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  /*
-  let icon = document.querySelector("#weather-icon");
-  icon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );*/
+  let icon = document.querySelector("#icon");
+  icon.setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
 }
 
 function formatHours(timestamp) {
@@ -85,9 +81,7 @@ function displayForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `<div class="col">
                     <p>${formatHours(forecast.dt * 1000)}</p>
-                    <svg width="30" height="30" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="57.5" cy="57.5" r="57.5" fill="#FFCA0F" />
-                    </svg>
+                    <img id="icon" src="img/01d.svg" width="30" height="30" alt="icon">
                     <p class="forecast-temp">${Math.round(
                       forecast.main.temp_min
                     )}º <strong>${Math.round(
