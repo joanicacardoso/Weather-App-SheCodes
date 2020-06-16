@@ -128,15 +128,13 @@ function getPosition(event) {
 }
 
 buttonCurrentLocation.addEventListener("click", getPosition);
-
+*/
 // Change temperature units - WIP
 
 function convertCel(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
   let units = document.querySelector("#units");
-  currentTemp.innerHTML = Math.round(celsiusTemp);
-  units.innerHTML = ` ºC`;
 }
 
 function convertFah(event) {
@@ -144,12 +142,11 @@ function convertFah(event) {
   let currentTemp = document.querySelector("#temperature");
   let fTemp = (celsiusTemp * 9) / 5 + 32;
   currentTemp.innerHTML = Math.round(fTemp);
-  let units = document.querySelector("#units");
-  units.innerHTML = ` ºF`;
-  //add active class from celsius
-  // celsiusTemp.classList.add(".active");
-}
 
+  //add active class from celsius
+  //celsiusTemp.classList.add(".active");
+}
+search("Lisbon");
 let celsiusTemp = null;
 
 let fahrButton = document.querySelector("#fahr");
@@ -157,5 +154,3 @@ fahrButton.addEventListener("click", convertFah);
 
 let celsiusButton = document.querySelector("#celsius");
 celsiusButton.addEventListener("click", convertCel);
-*/
-search("Lisbon");
