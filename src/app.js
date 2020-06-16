@@ -110,9 +110,7 @@ cityForm.addEventListener("submit", searchCity);
 
 let savedTemperature = 0;
 
-/*Current location
-
-let buttonCurrentLocation = document.querySelector("#current-location-btn");
+// Current location
 
 function retrievePosition(position) {
   let lat = position.coords.latitude;
@@ -126,9 +124,9 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
-
+let buttonCurrentLocation = document.querySelector("#current-location");
 buttonCurrentLocation.addEventListener("click", getPosition);
-*/
+
 // Change temperature units - WIP
 
 function convertCel(event) {
