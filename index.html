@@ -13,7 +13,8 @@
       crossorigin="anonymous"
     />
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Document</title>
+  <script src="https://kit.fontawesome.com/c8ab3a3593.js" crossorigin="anonymous"></script>
+<title>Document</title>
   </head>
   <body>
     <div class="wrapper">
@@ -23,21 +24,27 @@
              <form id="search-form">
                 <input type="text" class="form-control form-control-sm" class="form" placeholder="Enter a city" autocomplete="off" id="city-input" />
         </div>
-        <div class="col-4 ml-1">
+        <div class="col-4 ml-1 col-auto mr-auto">
             <button type="button" class="btn btn-outline-light btn-sm" class="button" id="submit-btn">Search</button>
         </div>
         </form>
-        <div class="col-2">
+        <div class="col-auto">
           <div class="units">
            <a href="#" class="celsius" id="celsius">ºC</a> | <a href="#" class="fahr" id="fahr">ºF</a> 
           </div>
         </div>
       </div>
-        <div class="time-stamp">
+        <div class="row row-cols-2 no-gutters">
+        <div class="col-11 col-auto mr-auto">
+          <div class="time-stamp">
             <p>Last updated:</br>
             <span class="date" id="date"></br></span>
-
             </p>
+        </div>
+        </div>
+        <div class="col-auto" class="current-location">
+        <i class="fas fa-map-marker-alt"></i>
+        </div>
         </div>
         <div class="current-information">
 <img id="icon" src="img/01d.svg" alt="clear sky" height="120px" width="200px">

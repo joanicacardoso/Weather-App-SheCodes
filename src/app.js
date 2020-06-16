@@ -135,6 +135,7 @@ function convertCel(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
   let units = document.querySelector("#units");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 
 function convertFah(event) {
@@ -144,7 +145,7 @@ function convertFah(event) {
   currentTemp.innerHTML = Math.round(fTemp);
 
   //add active class from celsius
-  //celsiusTemp.classList.add(".active");
+  // celsiusTemp.classList.add(".active");
 }
 search("Lisbon");
 let celsiusTemp = null;
