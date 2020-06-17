@@ -82,11 +82,11 @@ function displayForecast(response) {
     forecastElement.innerHTML += `<div class="col">
                     <p>${formatHours(forecast.dt * 1000)}</p>
                     <img id="icon" src="img/01d.svg" width="30" height="30" alt="icon">
-                    <p class="forecast-temp">${Math.round(
+                    <p class="forecast-temp"> <span id="min-temp">${Math.round(
                       forecast.main.temp_min
-                    )}º <strong>${Math.round(
+                    )}</span>º <span id="max-temp">${Math.round(
       forecast.main.temp_max
-    )}º</strong></p>
+    )}</span>º</p>
                 </div>`;
   }
 }
@@ -132,18 +132,26 @@ buttonCurrentLocation.addEventListener("click", getPosition);
 function convertCel(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
-  let units = document.querySelector("#units");
+  let minTemp = document.querySelector("#min-temp");
+  let maxTemp = document.querySelector("#max-temp");
   currentTemp.innerHTML = Math.round(celsiusTemp);
+  minTemp.innerHTML = Math.round(celsiusTemp);
+  maxTemp.innerHTML = Math.round(celsiusTemp);
+  celsiusButton.classList.add("active");
+  fahrButton.classList.remove("active");
 }
 
 function convertFah(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
+  let minTemp = document.querySelector("#min-temp");
+  let maxTemp = document.querySelector("#max-temp");
   let fTemp = (celsiusTemp * 9) / 5 + 32;
   currentTemp.innerHTML = Math.round(fTemp);
-
-  //add active class from celsius
-  // celsiusTemp.classList.add(".active");
+  minTemp.innerHTML = Math.round(fTemp);
+  maxTemp.innerHTML = Math.round(fTemp);
+  celsiusButton.classList.remove("active");
+  fahrButton.classList.add("active");
 }
 search("Lisbon");
 let celsiusTemp = null;
