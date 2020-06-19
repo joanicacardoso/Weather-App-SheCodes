@@ -76,12 +76,13 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-
   for (let index = 0; index < 5; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `<div class="col">
                     <p>${formatHours(forecast.dt * 1000)}</p>
-                    <img id="icon" src="img/01d.svg" width="30" height="30" alt="icon">
+                    <img id="icon-forecast" src="img/${
+                      forecast.weather[0].icon
+                    }.svg" width="30" height="30" alt="icon">
                     <p class="forecast-temp"> <span id="min-temp">${Math.round(
                       forecast.main.temp_min
                     )}</span>º <span id="max-temp">${Math.round(
