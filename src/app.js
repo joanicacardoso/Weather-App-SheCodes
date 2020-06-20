@@ -38,6 +38,25 @@ function formatDate(timestamp) {
   return `${day}, ${month} ${date}</br>${hours}:${minutes}`;
 }
 
+// Current location
+
+function retrievePosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "48f466c2eeef74f8d4b3c29e67806457";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function getPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+let buttonCurrentLocation = document.querySelector("#current-location");
+buttonCurrentLocation.addEventListener("click", getPosition);
+
 //Search Engine
 
 function showTemperature(response) {
@@ -109,25 +128,6 @@ let cityForm = document.querySelector("#search-form");
 cityForm.addEventListener("submit", searchCity);
 
 let savedTemperature = 0;
-
-// Current location
-
-function retrievePosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "48f466c2eeef74f8d4b3c29e67806457";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showTemperature);
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(displayForecast);
-}
-
-function getPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(retrievePosition);
-}
-let buttonCurrentLocation = document.querySelector("#current-location");
-buttonCurrentLocation.addEventListener("click", getPosition);
 
 // Change temperature units - WIP
 
