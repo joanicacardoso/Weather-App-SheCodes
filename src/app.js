@@ -68,7 +68,6 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-
   return `${hours}:${minutes}`;
 }
 
@@ -119,6 +118,8 @@ function retrievePosition(position) {
   let apiKey = "48f466c2eeef74f8d4b3c29e67806457";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getPosition(event) {
@@ -133,8 +134,8 @@ buttonCurrentLocation.addEventListener("click", getPosition);
 function convertCel(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
-  let minTemp = document.querySelector("#min-temp");
-  let maxTemp = document.querySelector("#max-temp");
+  let minTemp = document.querySelectorAll("#min-temp");
+  let maxTemp = document.querySelectorAll("#max-temp");
   currentTemp.innerHTML = Math.round(celsiusTemp);
   minTemp.innerHTML = Math.round(celsiusTemp);
   maxTemp.innerHTML = Math.round(celsiusTemp);
@@ -145,8 +146,8 @@ function convertCel(event) {
 function convertFah(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
-  let minTemp = document.querySelector("#min-temp");
-  let maxTemp = document.querySelector("#max-temp");
+  let minTemp = document.querySelectorAll("#min-temp");
+  let maxTemp = document.querySelectorAll("#max-temp");
   let fTemp = (celsiusTemp * 9) / 5 + 32;
   currentTemp.innerHTML = Math.round(fTemp);
   minTemp.innerHTML = Math.round(fTemp);
